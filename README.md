@@ -110,11 +110,11 @@ func main() {
 	ctx := context.Background()
 	client := NewPubSubClient(ctx, GoogleCloudProjectID)
 	topicExporter := Topic(client, PubTopicIDExporter)
-	formBatter := Form{Season: Season, GameDate: gameDate, PlayerType: BATTER}
+	formBatter := Form{Season: 2023, GameDate: gameDate, PlayerType: BATTER}
 	log.Printf("export batter game_date: %s", formBatter.GameDate)
 	Publish(ctx, topicExporter, formBatter)
 	log.Print("export batter end")
-	formPitcher := Form{Season: Season, GameDate: gameDate, PlayerType: PITCHER}
+	formPitcher := Form{Season: 2023, GameDate: gameDate, PlayerType: PITCHER}
 	log.Printf("export pitcher game_date: %s", formPitcher.GameDate)
 	Publish(ctx, topicExporter, formPitcher)
 	log.Print("export pitcher end")
