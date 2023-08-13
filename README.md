@@ -1,6 +1,6 @@
 # Baseball Savant Crawler
 
-[Baseball Savant(Statcast Search)]() Crawler for Go
+[Baseball Savant(Statcast Search)](https://baseballsavant.mlb.com/statcast_search) Crawler for Go
 
 ## Requirement
 
@@ -106,7 +106,7 @@ func Topic(client *pubsub.Client, topicID string) *pubsub.Topic {
 
 func main() {
 	t := time.Now().UTC()
-	gameDate := t.Add(DATE_DIFF * time.Hour * 24)
+	gameDate := t.Add(-2 * time.Hour * 24)
 	ctx := context.Background()
 	client := NewPubSubClient(ctx, GoogleCloudProjectID)
 	topicExporter := Topic(client, PubTopicIDExporter)
